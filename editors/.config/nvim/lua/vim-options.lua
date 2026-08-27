@@ -86,6 +86,11 @@ vim.api.nvim_exec(
 ]],
 	false
 )
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.cmd("Neotree filesystem reveal left")
+	end,
+})
 
 vim.o.wildoptions = vim.o.wildoptions:gsub(",pum", "")
-vim.g.netrw_banner = 0
+vim.g.netrw_banner = 1

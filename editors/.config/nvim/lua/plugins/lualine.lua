@@ -72,7 +72,12 @@ return {
 				},
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "progress" },
-				lualine_z = { { "location", separator = { right = "" }, right_padding = 2 } },
+				lualine_z = {
+					{ "location", separator = { right = "" }, right_padding = 2 },
+					{
+						require("opencode").statusline,
+					},
+				},
 			},
 			inactive_sections = {
 				lualine_a = {},

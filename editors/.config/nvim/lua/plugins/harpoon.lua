@@ -53,7 +53,7 @@ return {
 				desc = "Harpoon File",
 			},
 			{
-				"<C-p>",
+				"<C-n>",
 				function()
 					require("harpoon"):list():prev()
 				end,

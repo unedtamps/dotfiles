@@ -24,7 +24,20 @@ return {
 					},
 				},
 				-- config - config coba di default
-				defaults = { file_ignore_patterns = { "node_modules" }, initial_mode = "insert" },
+				defaults = {
+				file_ignore_patterns = { "node_modules" },
+				initial_mode = "insert",
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--ignore-case",
+				},
+			},
 			})
 			require("telescope").load_extension("ui-select")
 		end,

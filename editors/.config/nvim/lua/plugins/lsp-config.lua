@@ -125,7 +125,53 @@ return {
 					},
 				},
 			})
-			vim.lsp.config("pyright", {})
+			-- Resolve the project's virtualenv (or the activated one) so pyright uses the right interpreter.
+			local function find_venv_python(root)
+				local candidates = {}
+				if vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV ~= "" then
+					table.insert(candidates, vim.env.VIRTUAL_ENV .. "/bin/python")
+				end
+				if root then
+					table.insert(candidates, root .. "/.venv/bin/python")
+					table.insert(candidates, root .. "/venv/bin/python")
+					table.insert(candidates, root .. "/env/bin/python")
+				end
+				for _, p in ipairs(candidates) do
+					if vim.fn.executable(p) == 1 then
+						return p
+					end
+				end
+			end
+
+			vim.lsp.config("pyright", {
+				settings = {
+					python = {
+						analysis = {
+							autoSearchPaths = true,
+						},
+					},
+				},
+			})
+
+			-- Point pyright at the project's virtualenv before it starts, so installed
+			-- packages are recognized without a stale-import analysis pass.
+			vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+				pattern = { "*.py" },
+				callback = function()
+					local root = vim.fs.root(0, { ".venv", "venv", ".git", "pyproject.toml", "setup.py" })
+					local py = find_venv_python(root)
+					if py then
+						vim.lsp.config("pyright", {
+							settings = {
+								python = {
+									pythonPath = py,
+									analysis = { autoSearchPaths = true },
+								},
+							},
+						})
+					end
+				end,
+			})
 			vim.lsp.config("ts_ls", {})
 			vim.lsp.config("rust_analyzer", {
 				settings = {

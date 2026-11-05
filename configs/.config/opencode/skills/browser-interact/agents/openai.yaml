@@ -1,0 +1,3 @@
+interface:
+  display_name: "Browser Interact"
+  short_description: "Open, click and screenshot a local web app"

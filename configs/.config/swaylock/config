@@ -1,0 +1,32 @@
+# Tokyo Night lock screen
+ignore-empty-password
+show-failed-attempts
+
+color=1a1b26
+inside-color=1a1b26
+inside-clear-color=24283b
+inside-ver-color=24283b
+inside-wrong-color=292e42
+
+ring-color=7aa2f7
+ring-clear-color=292e42
+ring-ver-color=9ece6a
+ring-wrong-color=f7768e
+key-hl-color=9ece6a
+bs-hl-color=f7768e
+
+line-color=7aa2f7
+line-clear-color=292e42
+line-ver-color=9ece6a
+line-wrong-color=f7768e
+
+separator-color=1a1b26
+text-color=c0caf5
+text-clear-color=c0caf5
+text-ver-color=9ece6a
+text-wrong-color=f7768e
+caps-lock-indicator-color=565f89
+caps-lock-indicator-radius=4
+
+font=JetBrainsMono Nerd Font
+font-size=36

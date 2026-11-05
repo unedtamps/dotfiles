@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "margin-top": 8,
+  "margin-left": 10,
+  "margin-right": 10,
+  "spacing": 0,
+  "modules-left": [
+    "niri/workspaces",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery"
+  ],
+  "niri/workspaces": {
+    "format": "{index}",
+    "on-click": "activate",
+    "on-scroll-up": "niri msg action focus-workspace-up",
+    "on-scroll-down": "niri msg action focus-workspace-down"
+  },
+  "niri/window": {
+    "format": "{}",
+    "max-length": 45
+  },
+  "clock": {
+    "format": "󰥔  {:%H:%M:%S  ·  %a, %d %b}",
+    "format-alt": "󰃰  {:%A, %d %B %Y}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "format": {
+        "months": "<span color='#bb9af7'><b>{}</b></span>",
+        "days": "<span color='#c0caf5'>{}</span>",
+        "weekdays": "<span color='#7aa2f7'>{}</span>",
+        "today": "<span color='#1a1b26'><b><u>{}</u></b></span>"
+      }
+    },
+    "interval": 1
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "tooltip-format": "{desc} · {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "scroll-step": 5
+  },
+  "network": {
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀 wired",
+    "format-disconnected": "󰤭 offline",
+    "tooltip-format-wifi": "{essid} · {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname}",
+    "on-click": "/home/nedo/.config/wofi/wifi-menu.sh",
+    "on-click-right": "nm-connection-editor"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {device_alias}",
+    "on-click": "blueman-manager",
+    "tooltip-format": "{controller_alias} · {controller_address}"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁽",
+      "󰁿",
+      "󰂁",
+      "󰂂"
+    ],
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format-time": "{H}h{M}m"
+  }
+}

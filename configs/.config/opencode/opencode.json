@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "@prevalentware/opencode-goal-plugin",
+    "@cortexkit/opencode-antigravity-auth"
+  ],
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT_MCP}"
+      }
+    },
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_MCP}"
+      }
+    },
+    "tavily-remote-mcp": {
+      "type": "remote",
+      "url": "https://mcp.tavily.com/mcp/?tavilyApiKey={env:TAVILY_MCP}"
+    },
+    "retriv": {
+      "type": "remote",
+      "url": "http://127.0.0.1:9000/mcp",
+      "headers": {
+        "Authorization": "Bearer {env:RETRIV_MCP}"
+      }
+    },
+    "open-computer-use": {
+      "type": "local",
+      "command": ["open-computer-use", "mcp"],
+      "enabled": true
+    },
+    "claude-mem": {
+      "type": "local",
+      "command": [
+        "/home/nedo/.nvm/versions/node/v24.22.1/bin/node",
+        "/home/nedo/.claude/plugins/marketplaces/thedotmack/plugin/scripts/mcp-server.cjs"
+      ]
+    },
+    "pencil": {
+      "command": [
+        "/tmp/.mount_Pen-liKn5ejP/resources/app.asar.unpacked/out/mcp-server-linux-x64",
+        "--app",
+        "desktop",
+        "--agent",
+        "openCodeCLI"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "excalidraw": {
+      "type": "local",
+      "command": [
+        "node",
+        "/home/nedo/Projects/OpenSource/excalidraw-mcp/dist/index.js",
+        "--stdio"
+      ],
+      "enabled": true
+    },
+    "drawsql": {
+      "type": "remote",
+      "url": "https://drawsql.app/mcp"
+    }
+  },
+  "provider": {},
+  "lsp": true
+}

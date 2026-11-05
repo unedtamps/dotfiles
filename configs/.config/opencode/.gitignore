@@ -1,0 +1,9 @@
+node_modules
+bun.lock
+package-lock.json
+service.json
+*.bak
+antigravity-accounts.json
+antigravity-accounts.json.*.tmp
+antigravity-signature-cache.json
+antigravity-logs/

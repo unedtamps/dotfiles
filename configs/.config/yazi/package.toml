@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "25918dc"
+hash = "270915fa8282a19908449530ff66f7e2"
+
+[[plugin.deps]]
+use = "alberti42/fzf-plus"
+rev = "74cd546"
+hash = "fa94bd7576f5b410094e75378bdef087"
+
+[flavor]
+deps = []

@@ -1,0 +1,30 @@
+# Tokyo Night notifications
+font=JetBrainsMono Nerd Font 10
+background-color=#24283b
+text-color=#c0caf5
+border-color=#7aa2f7
+border-size=2
+border-radius=14
+padding=14
+margin=16
+width=380
+height=130
+icons=1
+max-icon-size=48
+default-timeout=5000
+group-by=app-name
+max-visible=4
+anchor=top-right
+sort=-time
+layer=overlay
+
+[urgency=low]
+border-color=#565f89
+background-color=#1f2335
+default-timeout=3000
+
+[urgency=critical]
+border-color=#f7768e
+background-color=#292e42
+text-color=#f7768e
+default-timeout=0

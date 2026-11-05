@@ -1,0 +1,30 @@
+{
+  "theme": {
+    "name": "system"
+  },
+  "keybinds": {
+    "agent.cycle": "tab",
+    "agent.cycle.reverse": "none",
+    "session.toggle.thinking": "alt+t"
+  },
+  "diffs": {
+    "wrap": "word",
+    "view": "auto",
+    "tree": true
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": true,
+    "thinking": "show",
+    "markdown": "rendered",
+    "grouping": "auto"
+  },
+  "animations": true,
+  "tabs": {
+    "mode": "off"
+  },
+  "debug": {
+    "turn_tokens": false,
+    "devtools": false
+  }
+}

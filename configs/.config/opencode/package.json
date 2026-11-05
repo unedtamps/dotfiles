@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@opencode-ai/plugin": "1.4.9",
+    "openrtk": "^0.1.0"
+  }
+}

@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+# Block commits that contain secrets.
+#
+# Uses gitleaks (https://github.com/gitleaks/gitleaks). Only staged changes are
+# scanned, so history is not re-checked on every commit.
+#
+# Install once per clone:
+#   git config core.hooksPath .githooks
+#   (or symlink this file into .git/hooks/pre-commit)
+set -eu
+
+GITLEAKS_BIN="${GITLEAKS_BIN:-}"
+if [ -z "$GITLEAKS_BIN" ]; then
+	if command -v gitleaks >/dev/null 2>&1; then
+		GITLEAKS_BIN=$(command -v gitleaks)
+	elif [ -x "$HOME/.local/bin/gitleaks" ]; then
+		GITLEAKS_BIN="$HOME/.local/bin/gitleaks"
+	else
+		echo "pre-commit: gitleaks not found (install it or set GITLEAKS_BIN)" >&2
+		echo "pre-commit: skipping secret scan" >&2
+		exit 0
+	fi
+fi
+
+echo "pre-commit: scanning staged changes for secrets..."
+exec "$GITLEAKS_BIN" git --staged --redact --no-banner --verbose

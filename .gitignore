@@ -11,3 +11,15 @@ Thumbs.db
 # Secrets / credentials
 gha-creds-*.json
 **/.gemini/
+.zshenv
+.env
+.env.*
+.netrc
+.pgpass
+.p12
+.pfx
+credentials*
+id_rsa
+id_ed25519
+*.key
+*.pem
